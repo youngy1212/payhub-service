@@ -13,7 +13,7 @@ public class MemberRepository {
 
     public Long save(final Member member) {
         em.persist(member);
-        return member.getId();
+        return member.getMemberId();
     }
 
     public Member findById(final Long id) {
