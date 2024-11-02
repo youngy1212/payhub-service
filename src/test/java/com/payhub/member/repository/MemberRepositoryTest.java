@@ -1,18 +1,19 @@
-package com.payhub.mamber.repository;
+package com.payhub.member.repository;
 
-import com.payhub.mamber.entity.Member;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+import com.payhub.member.entity.Member;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 @SpringBootTest
 class MemberRepositoryTest {
 
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     @Transactional
@@ -30,7 +31,7 @@ class MemberRepositoryTest {
 
         // 결과 검증
         assertThat(foundMember).isNotNull();
-        assertThat(foundMember.getId()).isEqualTo(savedId);
+        assertThat(foundMember.getMemberId()).isEqualTo(savedId);
         assertThat(foundMember.getName()).isEqualTo(member.getName());
     }
 
