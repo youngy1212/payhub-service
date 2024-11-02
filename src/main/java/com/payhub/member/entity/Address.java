@@ -1,4 +1,4 @@
-package com.payhub.mamber.entity;
+package com.payhub.member.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
@@ -12,7 +12,8 @@ public class Address {
     private String zip;
 
     //직접 값 변경 금지
-    protected Address() {}
+    protected Address() {
+    }
 
     public Address(String city, String street, String zip) {
         this.city = city;
